@@ -15,7 +15,7 @@ function JobLists() {
       navigate("/login");
     }
     const getJobs = async () => {
-      const res = await axios.get("http://localhost:5000/v1/jobs");
+      const res = await axios.get("http://recruitex.in:5000/v1/jobs");
       console.log(res.data);
       setJobs(res.data);
     };

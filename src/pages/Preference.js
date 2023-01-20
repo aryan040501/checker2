@@ -38,7 +38,7 @@ function Preference() {
   const update = async (e) => {
     e.preventDefault();
     const data = await axios.post(
-      `http://localhost:5000/v1/user/preferences`,
+      `http://recruitex.in:5000/v1/user/preferences`,
       {
         formData,
       },

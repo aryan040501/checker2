@@ -19,7 +19,7 @@ function LandingHeroSection() {
               A Proud Indian Team with exceptional Screened Candidates
             </p>
             <br />
-            <a href="/create-new-store">
+            <a href="/">
               <button class="btn btn-dark px-5 ">
                 <div class="text-start text-white">Hire Now</div>
               </button>

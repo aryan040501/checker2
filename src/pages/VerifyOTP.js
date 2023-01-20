@@ -13,12 +13,19 @@ function VerifyOTP() {
 
   const verifyOTP = async (e) => {
     e.preventDefault();
-    const res = await axios.post("http://localhost:5000/v1/user/verify/email", {
-      email: localStorage.getItem("email"),
-      otp: OTP,
-    });
-    console.log(res.data);
-    navigate("/set-password");
+    const res = await axios.post(
+      "http://recruitex.in:5000/v1/user/verify/email",
+      {
+        email: localStorage.getItem("email"),
+        otp: OTP,
+      }
+    );
+    console.log("uhm", res.data.data);
+    if (res.data.data === "all good!") {
+      navigate("/set-password");
+    } else {
+      alert("invalid otp");
+    }
   };
 
   return (

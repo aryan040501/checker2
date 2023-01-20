@@ -8,7 +8,7 @@ function Header() {
       <nav className="navbar navbar-expand-lg bg-gray">
         <div className="container">
           <a className="navbar-brand" href="/">
-            <img src="/recruitEx.png" alt="logo" style={{ width: "200px" }} />
+            <img src="/RecruitEx.png" alt="logo" style={{ width: "200px" }} />
           </a>
           <button
             class="navbar-toggler"

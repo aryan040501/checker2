@@ -20,7 +20,7 @@ function PersonalDetails() {
   const updateDetails = async (e) => {
     e.preventDefault();
     const res = await axios.post(
-      "http://localhost:5000/v1/user/personal-details",
+      "http://recruitex.in:5000/v1/user/personal-details",
       { formData },
       {
         headers: {
@@ -42,7 +42,7 @@ function PersonalDetails() {
       image = reader.result;
       await axios
         .post(
-          `http://localhost:5000/v1/upload`,
+          `http://recruitex.in:5000/v1/upload`,
           {
             resume: image,
             type: event.target.files[0].type,

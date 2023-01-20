@@ -22,7 +22,7 @@ function Login() {
     console.log("email and pass", email, password);
     e.preventDefault();
     const res = await axios.post(
-      "http://localhost:5000/v1/user/login",
+      "http://recruitex.in:5000/v1/user/login",
       { email: email, password: password }
       // { withCredentials: true }
     );
