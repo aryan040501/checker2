@@ -8,13 +8,16 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.2",
     "bootstrap": "^5.2.3",
+    "emailjs-com": "^3.2.0",
     "otp-input-react": "^0.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.4.5",
     "react-router-dom": "^6.4.5",
     "react-scripts": "5.0.1",
+    "reactjs-popup": "^2.0.5",
     "sass": "^1.56.2",
+    "toastifier": "^1.2.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

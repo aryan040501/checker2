@@ -9,7 +9,7 @@ function Footer() {
         <div class="row">
           <div class="col d-flex justify-content-start">
             <img
-              src="/recruitEx.png"
+              src="/RecruitEx.png"
               alt="logo"
               style={{ width: "200px", height: "60%" }}
             />
@@ -18,9 +18,7 @@ function Footer() {
             <div>
               careers@recruitex.in
               <br />
-              +91 8851319439
-              <br />
-              JUIT, Noida
+              Techzone IV, Noida
             </div>
           </div>
         </div>

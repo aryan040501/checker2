@@ -4,9 +4,7 @@ function LandingPageSection3() {
   return (
     <div class="container">
       <br />
-      <h2 class="fw-bolder text-dark">
-        Some of the Top Shots who hire from Us
-      </h2>
+      <h2 class="fw-bolder text-dark">We are loved by</h2>
       <br />
       <div class="row">
         <div class="col d-flex justify-content-center">
@@ -14,7 +12,7 @@ function LandingPageSection3() {
             <div class="card-body d-flex align-items-center justify-content-center">
               <p class="card-text">
                 <img
-                  src="https://images.hindustantimes.com/img/2022/09/11/1600x900/gd_1662870108818_1662870128181_1662870128181.png"
+                  src="https://techbud.in/static/media/techbud_final_small.b8d2ca73.png"
                   class="card-img-top "
                   alt="#"
                   style={{
@@ -32,7 +30,7 @@ function LandingPageSection3() {
             <div class="card-body d-flex align-items-center justify-content-center">
               <p class="card-text">
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Adobe_Corporate_logo.svg/2560px-Adobe_Corporate_logo.svg.png"
+                  src="https://msmebusinessforum.com/photo/logotm.png"
                   class="card-img-top"
                   alt="#"
                   style={{

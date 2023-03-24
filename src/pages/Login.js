@@ -19,18 +19,24 @@ function Login() {
   };
 
   const signIn = async (e) => {
-    console.log("email and pass", email, password);
-    e.preventDefault();
-    const res = await axios.post(
-      "http://recruitex.in:5000/v1/user/login",
-      { email: email, password: password }
-      // { withCredentials: true }
-    );
-    console.log(res.data);
-    localStorage.setItem("email", email);
-    localStorage.setItem("token", res.data.token);
-    console.log(localStorage.getItem("email"));
-    navigate("/jobs");
+    try {
+      console.log("email and pass", email, password);
+      e.preventDefault();
+      const res = await axios.post(
+        "http://localhost:5000/v1/user/login",
+        { email: email, password: password }
+        // { withCredentials: true }
+      );
+      console.log(res.data);
+      if (res.data.token !== undefined) {
+        localStorage.setItem("email", email);
+        localStorage.setItem("token", res.data.token);
+        console.log(localStorage.getItem("email"));
+        navigate("/jobs");
+      }
+    } catch (err) {
+      console.log("err", err);
+    }
   };
   return (
     <div>

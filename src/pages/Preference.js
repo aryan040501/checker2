@@ -38,7 +38,7 @@ function Preference() {
   const update = async (e) => {
     e.preventDefault();
     const data = await axios.post(
-      `http://recruitex.in:5000/v1/user/preferences`,
+      `https://recruitex.in/v1/user/preferences`,
       {
         formData,
       },
@@ -49,7 +49,7 @@ function Preference() {
       }
     );
     console.log("data", data);
-    navigate("/jobs");
+    navigate("/candidate/personal_details");
   };
 
   return (
@@ -121,6 +121,15 @@ function Preference() {
               <option value="Backend Web Development" class="text-dark">
                 Backend Web Development
               </option>
+              <option value="Business Development (Sales)" class="text-dark">
+                Business Development (Sales)
+              </option>
+              <option
+                value="Marketing or Social Media Manager"
+                class="text-dark"
+              >
+                Marketing or Social Media Manager
+              </option>
             </select>
           </div>
           <br />
@@ -132,6 +141,16 @@ function Preference() {
               class="form-control text-dark"
               type="number"
               name="experience"
+              onChange={handleChange}
+            />
+            <br />
+            <label for="exampleFormControlInput1" class="form-label">
+              Current CTC (in LPA, if any)
+            </label>
+            <input
+              class="form-control text-dark"
+              type="number"
+              name="currctc"
               onChange={handleChange}
             />
             {/* <select

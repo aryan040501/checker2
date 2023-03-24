@@ -10,11 +10,9 @@ function LandingPageSection4() {
             <h2 class="fw-bolder text-dark">How to Start Hiring?</h2>
           </div>
           <div class="col d-flex align-items-center justify-content-end">
-            <a href="/create-new-store">
-              <button class="btn btn-dark text-light btn-sm me-3">
-                Hire Now
-              </button>
-            </a>
+            {/* <button class="btn btn-dark text-light btn-sm me-3">
+              Hire Now
+            </button> */}
           </div>
         </div>
         <br />
@@ -34,9 +32,9 @@ function LandingPageSection4() {
                     />
                   </div>
                 </div>
-                <h6 class="card-subtitle mb-2 text-muted">Register with Us</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Connect with Us</h6>
                 <p class="card-text">
-                  Register with us to get access to our platform
+                  Connect with us to get access to our platform
                 </p>
               </div>
             </div>

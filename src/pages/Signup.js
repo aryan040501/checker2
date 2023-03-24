@@ -18,7 +18,7 @@ function Signup() {
   const sendOTP = async (e) => {
     e.preventDefault();
     const res = await axios.post(
-      "http://recruitex.in:5000/v1/user/request-otp",
+      "https://recruitex.in/v1/user/request-otp",
       { email: email }
       // { withCredentials: true }
     );

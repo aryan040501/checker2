@@ -9,16 +9,13 @@ function SetPassword() {
   const navigate = useNavigate();
   const savePassword = async (e) => {
     e.preventDefault();
-    const res = await axios.post(
-      "http://recruitex.in:5000/v1/user/set-password",
-      {
-        email: localStorage.getItem("email"),
-        password: password,
-      }
-    );
+    const res = await axios.post("https://recruitex.in/v1/user/set-password", {
+      email: localStorage.getItem("email"),
+      password: password,
+    });
     console.log(res.data);
     localStorage.setItem("token", res.data.token);
-    navigate("/jobs");
+    navigate("/candidate/preference");
   };
   return (
     <div>
