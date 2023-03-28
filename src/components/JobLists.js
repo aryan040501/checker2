@@ -11,9 +11,6 @@ function JobLists() {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
   useEffect(() => {
-    if (!token) {
-      navigate("/login");
-    }
     const getJobs = async () => {
       const res = await axios.get("http://localhost:5000/v1/jobs");
       console.log(res.data);
