@@ -32,6 +32,9 @@ function JobCard({ data }) {
   }, []);
 
   const apply = async () => {
+    if (!token) {
+      navigate("/login");
+    }
     console.log("applied");
     const res = await axios.post(
       `http://localhost:5000/v1/user/apply/${data.id}`,
