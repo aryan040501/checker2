@@ -59,63 +59,11 @@ function LandingHeroSection() {
             </p>
             <br />
             <div class="d-flex justify-content-start">
-              {!token ? (
-                <a href="/signup">
-                  <button class="btn btn-dark px-5 ">
-                    <div class="text-start text-white">Apply Now</div>
-                  </button>
-                </a>
-              ) : (
-                <a href="/jobs">
-                  <button class="btn btn-dark px-5 ">
-                    <div class="text-start text-white">Apply Now</div>
-                  </button>
-                </a>
-              )}
-              &nbsp;&nbsp;&nbsp;
-              <Popup
-                trigger={
-                  <button class="btn btn-dark px-5 ">
-                    <div class="text-start text-white">Hire Now</div>
-                  </button>
-                }
-                position="center center"
-                modal
-              >
-                <div>
-                  <p className="fs-2 bold text-dark">
-                    Connect with us to hire with ease
-                  </p>
-                  <form onSubmit={sendEmail}>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Your Email Address"
-                      className="form-control mt-2 text-dark"
-                    />
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Full Name"
-                      className="form-control mt-2 text-dark"
-                    />
-                    <input
-                      type="text"
-                      name="subject"
-                      placeholder="Phone Number"
-                      className="form-control mt-2 text-dark"
-                    />
-                    <input
-                      name="textarea"
-                      placeholder="Your Message Here"
-                      className="form-control mt-2 text-dark"
-                    />
-                    <button className="btn btn-sm btn-primary mt-2">
-                      Submit
-                    </button>
-                  </form>
-                </div>
-              </Popup>
+              <a href="/jobs">
+                <button class="btn btn-dark px-5 ">
+                  <div class="text-start text-white">Explore Jobs</div>
+                </button>
+              </a>
             </div>
           </div>
           <div class="col-md mt-3">

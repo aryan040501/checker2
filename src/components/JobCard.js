@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./JobCard.css";
 import "./JobCard.scss";
+import { useNavigate } from "react-router";
 
 function JobCard({ data }) {
   const [tags, setJobTags] = useState([]);
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [applied, setApplied] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     const setTags = () => {
       setJobTags(data.tags.split(","));
@@ -46,6 +48,7 @@ function JobCard({ data }) {
       }
     );
     console.log("data from apply", res.data);
+    setApplied(true);
   };
 
   return (
