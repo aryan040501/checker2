@@ -1,23 +1,36 @@
 import React, { useState, useEffect } from "react";
 import JobCard from "./JobCard";
 import Sidebar from "./Sidebar";
-import axios from "axios";
+import axios, { all } from "axios";
 import { useNavigate } from "react-router";
 import Footer from "./Footer";
 
 function JobLists() {
   const navigate = useNavigate();
   const [jobs, setJobs] = useState([]);
+  const [allJobs, setAllJobs] = useState([]);
   const [token, setToken] = useState(localStorage.getItem("token"));
+  const [company, setCompany] = useState("");
+  const [jobRole, setJobRole] = useState("");
+  const [skills, setSkills] = useState("");
+  const [location, setLocation] = useState("");
 
   useEffect(() => {
     const getJobs = async () => {
       const res = await axios.get("http://localhost:5000/v1/jobs");
       console.log(res.data);
       setJobs(res.data);
+      setAllJobs(res.data);
     };
     getJobs();
   }, []);
+
+  useEffect(() => {
+    const jobs = allJobs.filter((j) => {
+      return j.company_name.toLowerCase().includes(company) && j.job_title.toLowerCase().includes(jobRole) && j.skills_required.toLowerCase().includes(skills) && j.location.toLowerCase().includes(location)
+    })
+    setJobs(jobs);
+  }, [company, jobRole, skills, location])
 
   return (
     <>
@@ -28,7 +41,7 @@ function JobLists() {
               <br />
               <br />
               <br />
-              <Sidebar />
+              <Sidebar setCompany={setCompany} company={company} jobRole={jobRole} setJobRole={setJobRole} skills={skills} setSkills={setSkills} location={location} setLocation={setLocation} />
             </div>
           </div>
           <div className="col-md-7">

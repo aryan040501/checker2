@@ -79,7 +79,7 @@ function Login() {
             </button>
             <div class="login">
               Don't Have an Account?{" "}
-              <button className="btn btn-sm">Signup</button>
+              <button className="btn btn-sm" onClick={() => navigate("/signup")}>Signup</button>
             </div>
           </form>
         </div>
