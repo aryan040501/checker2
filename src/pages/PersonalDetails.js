@@ -36,28 +36,49 @@ function PersonalDetails() {
     setDisabled(true);
     var image = "";
     var reader = new FileReader();
+    console.log("event", event.target.files);
     reader.readAsDataURL(event.target.files[0]);
     reader.onload = async function () {
-      console.log(reader.result);
-      image = reader.result;
-      await axios
-        .post(
-          `https://recruitex.in/v1/upload`,
-          {
-            resume: image,
-            type: event.target.files[0].type,
-          },
-          {
-            headers: {
-              "x-auth-token": token,
+      try {
+        console.log(reader.result);
+        image = reader.result;
+        await axios
+          .post(
+            `https://recruitex.in/v1/upload`,
+            {
+              resume: image,
+              type: event.target.files[0].type,
+              size: event.target.files[0].size,
             },
-          }
-        )
-        .then((resul) => {
-          console.log("result from upload", resul);
-          setFormData({ ...formData, ["resume"]: resul.data });
-          setDisabled(false);
-        });
+            {
+              headers: {
+                "x-auth-token": token,
+              },
+            }
+          )
+          .then((resul) => {
+            console.log(
+              "result from upload",
+              resul.status,
+              typeof resul.status,
+              resul.response.data.erro
+            );
+            console.log("resul", resul);
+
+            setFormData({ ...formData, ["resume"]: resul.data });
+          });
+      } catch (err) {
+        console.log(
+          "err",
+          err,
+          err.status,
+          typeof err.status,
+          err.response.data.error
+        );
+        if (err.response.status === 500) {
+          alert(err.response.data.error);
+        }
+      }
     };
   };
 

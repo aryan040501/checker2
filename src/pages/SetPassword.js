@@ -6,16 +6,24 @@ import axios from "axios";
 
 function SetPassword() {
   const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
   const navigate = useNavigate();
   const savePassword = async (e) => {
     e.preventDefault();
-    const res = await axios.post("https://recruitex.in/v1/user/set-password", {
-      email: localStorage.getItem("email"),
-      password: password,
-    });
-    console.log(res.data);
-    localStorage.setItem("token", res.data.token);
-    navigate("/candidate/preference");
+    if (password === password2) {
+      const res = await axios.post(
+        "https://recruitex.in/v1/user/set-password",
+        {
+          email: localStorage.getItem("email"),
+          password: password,
+        }
+      );
+      console.log(res.data);
+      localStorage.setItem("token", res.data.token);
+      navigate("/candidate/preference");
+    } else {
+      alert("Please check password and confirm password");
+    }
   };
   return (
     <div>
@@ -51,7 +59,7 @@ function SetPassword() {
               placeholder="Confirm Password"
               id="password2"
               className="input1"
-              // onChange={onChangePassword2}
+              onChange={(e) => setPassword2(e.target.value)}
             />
 
             <button className="signupButton" onClick={savePassword}>

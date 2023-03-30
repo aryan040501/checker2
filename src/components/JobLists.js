@@ -17,7 +17,7 @@ function JobLists() {
 
   useEffect(() => {
     const getJobs = async () => {
-      const res = await axios.get("http://localhost:5000/v1/jobs");
+      const res = await axios.get("https://recruitex.in/v1/jobs");
       console.log(res.data);
       setJobs(res.data);
       setAllJobs(res.data);
@@ -27,10 +27,15 @@ function JobLists() {
 
   useEffect(() => {
     const jobs = allJobs.filter((j) => {
-      return j.company_name.toLowerCase().includes(company) && j.job_title.toLowerCase().includes(jobRole) && j.skills_required.toLowerCase().includes(skills) && j.location.toLowerCase().includes(location)
-    })
+      return (
+        j.company_name.toLowerCase().includes(company) &&
+        j.job_title.toLowerCase().includes(jobRole) &&
+        j.skills_required.toLowerCase().includes(skills) &&
+        j.location.toLowerCase().includes(location)
+      );
+    });
     setJobs(jobs);
-  }, [company, jobRole, skills, location])
+  }, [company, jobRole, skills, location]);
 
   return (
     <>
@@ -41,7 +46,16 @@ function JobLists() {
               <br />
               <br />
               <br />
-              <Sidebar setCompany={setCompany} company={company} jobRole={jobRole} setJobRole={setJobRole} skills={skills} setSkills={setSkills} location={location} setLocation={setLocation} />
+              <Sidebar
+                setCompany={setCompany}
+                company={company}
+                jobRole={jobRole}
+                setJobRole={setJobRole}
+                skills={skills}
+                setSkills={setSkills}
+                location={location}
+                setLocation={setLocation}
+              />
             </div>
           </div>
           <div className="col-md-7">
