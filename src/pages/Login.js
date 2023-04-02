@@ -23,7 +23,7 @@ function Login() {
       console.log("email and pass", email, password);
       e.preventDefault();
       const res = await axios.post(
-        "https://recruitex.in/v1/user/login",
+        "http://localhost:5000/v1/user/login",
         { email: email, password: password }
         // { withCredentials: true }
       );
@@ -59,7 +59,7 @@ function Login() {
               className="input1"
               onChange={emailhandler}
               value={email}
-              // onChange={onChangeEmail}
+            // onChange={onChangeEmail}
             />
 
             <label for="password" className="signupLabel">
@@ -72,7 +72,7 @@ function Login() {
               className="input1"
               onChange={passwordhandler}
               value={password}
-              // onChange={onChangePassword}
+            // onChange={onChangePassword}
             />
             <button className="signupButton" onClick={signIn}>
               Sign In

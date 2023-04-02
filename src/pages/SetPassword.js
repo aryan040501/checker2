@@ -12,7 +12,7 @@ function SetPassword() {
     e.preventDefault();
     if (password === password2) {
       const res = await axios.post(
-        "https://recruitex.in/v1/user/set-password",
+        "http://localhost:5000/v1/user/set-password",
         {
           email: localStorage.getItem("email"),
           password: password,

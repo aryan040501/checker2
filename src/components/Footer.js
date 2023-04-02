@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -13,6 +14,9 @@ function Footer() {
               alt="logo"
               style={{ width: "200px", height: "60%" }}
             />
+          </div>
+          <div class="col d-flex justify-content-center">            
+            <Link to="/blogs" className="text-dark">Blogs</Link>
           </div>
           <div class="col d-flex justify-content-end">
             <div>

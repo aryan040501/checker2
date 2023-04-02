@@ -14,6 +14,8 @@ import MyApplications from "./pages/MyApplications";
 import VerifyOTP from "./pages/VerifyOTP";
 import SetPassword from "./pages/SetPassword";
 import Login from "./pages/Login";
+import Blogs from "./pages/Blogs";
+import Blog from "./pages/Blog";
 
 function App() {
   return (
@@ -26,17 +28,19 @@ function App() {
         <Route exact path="/verify" element={<VerifyOTP />} />
         <Route exact path="/set-password" element={<SetPassword />} />
         <Route exact path="/login" element={<Login />} />
+        <Route exact path="/blogs" element={<Blogs/>}/>
+        <Route exact path="/blog/:id" element={<Blog/>}/>
         <Route
           exact
           path="/candidate/personal_details"
           element={<PersonalDetails />}
         />
         <Route exact path="/candidate/preference" element={<Preference />} />
-        <Route
+        {/* <Route
           exact
           path="/candidate/application"
           element={<MyApplications />}
-        />
+        /> */}
       </Routes>
     </div>
   );

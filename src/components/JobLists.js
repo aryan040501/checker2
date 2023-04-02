@@ -4,20 +4,23 @@ import Sidebar from "./Sidebar";
 import axios, { all } from "axios";
 import { useNavigate } from "react-router";
 import Footer from "./Footer";
+import { useSearchParams } from "react-router-dom";
 
 function JobLists() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const [jobs, setJobs] = useState([]);
   const [allJobs, setAllJobs] = useState([]);
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [company, setCompany] = useState("");
-  const [jobRole, setJobRole] = useState("");
+  const [jobRole, setJobRole] = useState(searchParams.get("search"));
   const [skills, setSkills] = useState("");
   const [location, setLocation] = useState("");
+  const [noJob, setNoJob] = useState(false)
 
   useEffect(() => {
     const getJobs = async () => {
-      const res = await axios.get("https://recruitex.in/v1/jobs");
+      const res = await axios.get("http://localhost:5000/v1/jobs");
       console.log(res.data);
       setJobs(res.data);
       setAllJobs(res.data);
@@ -26,7 +29,12 @@ function JobLists() {
   }, []);
 
   useEffect(() => {
-    const jobs = allJobs.filter((j) => {
+    console.log("job", jobRole)
+    console.log("company", company)
+    console.log("skills", skills)
+    console.log("localtion", location)
+    console.log("all jobs", allJobs)
+    const filteredjobs = allJobs.filter((j) => {
       return (
         j.company_name.toLowerCase().includes(company) &&
         j.job_title.toLowerCase().includes(jobRole) &&
@@ -34,8 +42,17 @@ function JobLists() {
         j.location.toLowerCase().includes(location)
       );
     });
-    setJobs(jobs);
-  }, [company, jobRole, skills, location]);
+    console.log("filtered", filteredjobs)
+    if (filteredjobs.length > 0) {
+      setNoJob(false)
+      setJobs(filteredjobs);
+    }
+    else {
+      setJobs(allJobs)
+      setNoJob(true)
+    }
+    console.log("nojob", noJob)
+  }, [company, jobRole, skills, location, allJobs]);
 
   return (
     <>
@@ -62,14 +79,9 @@ function JobLists() {
             <div>
               <br />
               <div class="d-flex justify-content-center f2-bold text-dark">
-                {jobs.length} Jobs Found
+                {!noJob ? jobs.length + " Jobs Found" : "No Job Found, Here are some we recommend"}
               </div>
               {/* send datas to jobCard */}
-              <center>
-                Don't worry if you don't find a job of your liking here. <br />
-                Your Resume will be shared directly to recruiters that are not
-                present here.
-              </center>
               {jobs.map((datas) => (
                 <div>
                   <br />

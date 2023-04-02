@@ -13,7 +13,7 @@ function VerifyOTP() {
 
   const verifyOTP = async (e) => {
     e.preventDefault();
-    const res = await axios.post("https://recruitex.in/v1/user/verify/email", {
+    const res = await axios.post("http://localhost:5000/v1/user/verify/email", {
       email: localStorage.getItem("email"),
       otp: OTP,
     });
