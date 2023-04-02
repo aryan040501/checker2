@@ -24,7 +24,7 @@ const Blog = () => {
     //   setBlog(blog);
     // }
     const getBlogs = async () => {
-      const res = await axios.get("http://localhost:5000/v1/blogs/1");
+      const res = await axios.get("https://recruitex.in/v1/blogs/1");
       console.log("blogs data", res.data[0]);
       setBlogs(res.data[0]);
       setTags(res.data[0].subcategory.split(","));
@@ -47,7 +47,7 @@ const Blog = () => {
           />
           <meta
             property="og:image"
-            content="http://localhost:5000/RecruitEx.png"
+            content="https://recruitex.in/RecruitEx.png"
           />
         </Helmet>
       ) : (

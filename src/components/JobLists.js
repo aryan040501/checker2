@@ -20,7 +20,7 @@ function JobLists() {
 
   useEffect(() => {
     const getJobs = async () => {
-      const res = await axios.get("http://localhost:5000/v1/jobs");
+      const res = await axios.get("https://recruitex.in/v1/jobs");
       console.log(res.data);
       setJobs(res.data);
       setAllJobs(res.data);

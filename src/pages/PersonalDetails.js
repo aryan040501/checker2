@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import { PDFDocument, StandardFonts } from "pdf-lib";
+import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 
 function PersonalDetails() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -21,7 +21,7 @@ function PersonalDetails() {
   const updateDetails = async (e) => {
     e.preventDefault();
     const res = await axios.post(
-      "http://localhost:5000/v1/user/personal-details",
+      "https://recruitex.in/v1/user/personal-details",
       { formData },
       {
         headers: {
@@ -38,36 +38,6 @@ function PersonalDetails() {
     var image = "";
     var reader = new FileReader();
     console.log("event", event.target.files);
-    // const pdfBytes = reader.readAsArrayBuffer(event.target.files[0]);
-    // const pdfBytes = await event.target.files[0].arrayBuffer()
-    // const pdfDoc = await PDFDocument.load(pdfBytes);
-    // const firstPage = pdfDoc.getPages()[0];
-    // const phoneNumber = '123-456-7890';
-    // const phoneRegex = new RegExp(phoneNumber, 'g');
-    // const textContent = await firstPage.getText();
-
-    // // Replace each instance of the phone number with asterisks
-    // const asterisks = '*'.repeat(phoneNumber.length);
-    // const modifiedContent = textContent.replace(phoneRegex, asterisks);
-    // const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
-    // const textWidth = font.widthOfTextAtSize(asterisks, 12);
-    // const textHeight = font.heightAtSize(12);
-
-    // // Draw the modified text onto the page
-    // firstPage.drawText(modifiedContent, {
-    //   x: 50,
-    //   y: 750,
-    //   size: 12,
-    //   font: font,
-    //   color: "#000",
-    //   lineHeight: textHeight,
-    //   maxWidth: textWidth,
-    //   wordBreaks: ['-', '/']
-    // });
-
-    // // Save the modified PDF document
-    // const modifiedPdfBytes = await pdfDoc.save();
-    // console.log("modifiedPdfBytes", modifiedPdfBytes)
     reader.readAsDataURL(event.target.files[0]);
     reader.onload = async function () {
       try {
@@ -75,7 +45,7 @@ function PersonalDetails() {
         image = reader.result;
         await axios
           .post(
-            `http://localhost:5000/v1/upload`,
+            `https://recruitex.in/v1/upload`,
             {
               resume: image,
               type: event.target.files[0].type,
@@ -92,7 +62,6 @@ function PersonalDetails() {
               "result from upload",
               resul.status,
               typeof resul.status,
-              resul.response.data.erro
             );
             console.log("resul", resul);
 

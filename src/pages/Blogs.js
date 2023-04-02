@@ -13,7 +13,7 @@ const Blogs = () => {
 
   useEffect(() => {
     const getBlogs = async () => {
-      const res = await axios.get("http://localhost:5000/v1/blogs");
+      const res = await axios.get("https://recruitex.in/v1/blogs");
       console.log(res.data);
       setBlogs(res.data);
     };
@@ -38,7 +38,7 @@ const Blogs = () => {
         />
         <meta
           property="og:image"
-          content="http://localhost:5000/RecruitEx.png"
+          content="https://recruitex.in/RecruitEx.png"
         />
       </Helmet>
       {/* <Dark /> */}

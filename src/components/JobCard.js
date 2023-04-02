@@ -17,7 +17,7 @@ function JobCard({ data }) {
     const getApplied = async () => {
       console.log("token", token);
       const res = await axios.post(
-        `http://localhost:5000/v1/user/applied/${data.id}`,
+        `https://recruitex.in/v1/user/applied/${data.id}`,
         {},
         {
           headers: {
@@ -39,7 +39,7 @@ function JobCard({ data }) {
     }
     console.log("applied");
     const res = await axios.post(
-      `http://localhost:5000/v1/user/apply/${data.id}`,
+      `https://recruitex.in/v1/user/apply/${data.id}`,
       {},
       {
         headers: {
