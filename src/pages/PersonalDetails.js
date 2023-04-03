@@ -64,7 +64,7 @@ function PersonalDetails() {
               typeof resul.status,
             );
             console.log("resul", resul);
-
+            setDisabled(false)
             setFormData({ ...formData, ["resume"]: resul.data });
           });
       } catch (err) {
