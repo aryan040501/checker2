@@ -155,20 +155,61 @@ function PersonalDetails() {
             </div>
           </div>
           <div class="row">
-            <div class="col-md-2">
-              <label class="form-label">Country Code</label>
-              <input
-                class="form-control text-dark"
-                type="number"
-                placeholder="+91"
-              />
-            </div>
-            <div class="col-md-10">
+            <div class="col-md-6">
               <label class="form-label">Mobile Number</label>
               <input
                 class="form-control text-dark"
                 type="number"
                 name="mobileNo"
+                onChange={handleChange}
+              />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Currently Working?</label>
+              <select
+                class="form-select text-dark"
+                aria-label="Default select example"
+                name="working"
+                onChange={handleChange}
+              >
+                <option selected disabled>
+                  Select Option
+                </option>
+                <option value="true" class="text-dark">
+                  Yes
+                </option>
+                <option value="false" class="text-dark">
+                  No
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label class="form-label">In Notice Period?</label>
+              <select
+                class="form-select text-dark"
+                aria-label="Default select example"
+                name="inNotice"
+                onChange={handleChange}
+              >
+                <option selected disabled>
+                  Select Option
+                </option>
+                <option value="true" class="text-dark">
+                  Yes
+                </option>
+                <option value="false" class="text-dark">
+                  No
+                </option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Notice Period Duration (in months)</label>
+              <input
+                class="form-control text-dark"
+                type="number"
+                name="noticeDuration"
                 onChange={handleChange}
               />
             </div>
