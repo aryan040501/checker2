@@ -53,6 +53,7 @@ function VerifyOTP() {
               style={{ display: "flex", justifyContent: "center" }}
             />
             <br />
+            <p style={{textAlign: 'center'}} className="mt-1">*Please check in your spam, In case OTP not received</p>
             <ResendOTP onResendClick={() => console.log("Resend clicked")} />
 
             <button className="signupButton" onClick={verifyOTP}>
