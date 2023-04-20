@@ -26,10 +26,9 @@ function Signup() {
       console.log(res.data);
       localStorage.setItem("email", email);
       console.log(localStorage.getItem("email"));
-      navigate("/verify"); 
-    } catch (error) {
-      console.log(error);
-      alert(error.response.data);
+      navigate("/verify");
+    } catch (err) {
+      alert(err.response.data)
     }
   };
 

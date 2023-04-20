@@ -59,7 +59,7 @@ function Login() {
               className="input1"
               onChange={emailhandler}
               value={email}
-              // onChange={onChangeEmail}
+            // onChange={onChangeEmail}
             />
 
             <label for="password" className="signupLabel">
@@ -72,7 +72,7 @@ function Login() {
               className="input1"
               onChange={passwordhandler}
               value={password}
-              // onChange={onChangePassword}
+            // onChange={onChangePassword}
             />
             <button className="signupButton" onClick={signIn}>
               Sign In
