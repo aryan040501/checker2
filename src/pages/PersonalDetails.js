@@ -20,6 +20,8 @@ function PersonalDetails() {
 
   const updateDetails = async (e) => {
     e.preventDefault();
+    console.log('formData', formData.resume)
+    if (formData.resume !== undefined) {
     const res = await axios.post(
       "https://recruitex.in/v1/user/personal-details",
       { formData },
@@ -31,6 +33,9 @@ function PersonalDetails() {
     );
     console.log(res.data);
     navigate("/jobs");
+    } else {
+      alert('please upload resume!');
+    }
   };
 
   const upload = async (event) => {
