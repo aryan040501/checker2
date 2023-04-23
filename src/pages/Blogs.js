@@ -22,23 +22,20 @@ const Blogs = () => {
   return (
     <div>
       <Helmet>
-        <title>Get Hired with Ease | Recruitex</title>
+        <title>RecruitEx - Hiring Made Easy</title>
+        <meta name={"Get hired at your dream job with ease"} content={"RecruitEx assists you to get hired without applying to hundreds of jobs rather you are contacted by employers"} />
+        <meta name="site_name" content="Recruitex" />
         <meta
-          name="Get Hired or Hire with Ease | Recruitex"
-          content="Interviews, articles and todos to get hired at your dream company"
-        />
-        <meta property="og:site_name" content="Recruitex" />
-        <meta
-          property="og:title"
-          content="Get tips on how to get hired from professionals | Recruitex"
+          name="title"
+          content="Recruitex: Get hired at your dream job with ease"
         />
         <meta
-          property="og:description"
-          content="Interviews, articles and todos to get hired at your dream company"
+          name="description"
+          content="Connecting recruiters and candidates to appropriate job roles and simplifying the hiring process"
         />
         <meta
-          property="og:image"
-          content="https://recruitex.in/RecruitEx.png"
+          name="image"
+          content="https://recruitex.in/RecruitExFavicon.png"
         />
       </Helmet>
       {/* <Dark /> */}

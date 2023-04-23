@@ -7,9 +7,9 @@ const BlogItem = ({
   blog: {
     description,
     title,
-    createdAt,
-    authorName,
-    authorAvatar,
+    created_at,
+    author_name,
+    author_avatar,
     cover,
     category,
     id,
@@ -21,14 +21,13 @@ const BlogItem = ({
       <Link className="blogItem-link" to={`/blog/${id}`}>
         <img className="blogItem-cover" src={cover} alt="cover" />
         <Chip label={category} />
-        <h3>{title}</h3>
-        <p className="blogItem-desc">{description}</p>
+        <h3 className="text-dark">{title}</h3>
+        <p className="blogItem-desc text-dark" dangerouslySetInnerHTML={{ __html: description.slice(0, 180) }}></p>
         <footer>
           <div className="blogItem-author">
-            <img src={authorAvatar} alt="avatar" />
+            <img src={author_avatar} alt="avatar" />
             <div>
-              <h6>{authorName}</h6>
-              <p>{createdAt}</p>
+              <h6 className="text-dark">{author_name}</h6>
             </div>
           </div>
           ➝

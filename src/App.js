@@ -16,6 +16,8 @@ import SetPassword from "./pages/SetPassword";
 import Login from "./pages/Login";
 import Blogs from "./pages/Blogs";
 import Blog from "./pages/Blog";
+import Terms from "./pages/terms";
+import Privacy from "./pages/privacy";
 
 function App() {
   return (
@@ -28,8 +30,10 @@ function App() {
         <Route exact path="/verify" element={<VerifyOTP />} />
         <Route exact path="/set-password" element={<SetPassword />} />
         <Route exact path="/login" element={<Login />} />
-        <Route exact path="/blogs" element={<Blogs/>}/>
-        <Route exact path="/blog/:id" element={<Blog/>}/>
+        <Route exact path="/blogs" element={<Blogs />} />
+        <Route exact path="/blog/:id" element={<Blog />} />
+        <Route exact path="terms-and-conditions" element={<Terms />} />
+        <Route exact path="privacy-policy" element={<Privacy />} />
         <Route
           exact
           path="/candidate/personal_details"

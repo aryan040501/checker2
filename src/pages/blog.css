@@ -3,7 +3,7 @@
 }
 
 .blog-wrap {
-  width: 50rem;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -43,7 +43,7 @@
 
 .blog-body-full {
   display: grid;
-  grid-template-columns: 15% 60% 15%;
+  grid-template-columns: 15% 70% 15%;
 }
 
 .ads {

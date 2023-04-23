@@ -16,42 +16,49 @@ const Blog = () => {
   const [tags, setTags] = useState()
   console.log("id", id);
   useEffect(() => {
-    // console.log("bloglist", blogList);
-    // console.log("blog from blog data", blogList);
-    // let blog = blogList.find((blog) => blog.id === parseInt(id));
-    // console.log("huhhhhhhhhhhh", blog);
-    // if (blog) {
-    //   setBlog(blog);
-    // }
     const getBlogs = async () => {
-      const res = await axios.get("https://recruitex.in/v1/blogs/1");
+      const res = await axios.get(`https://recruitex.in/v1/blogs/${id}`);
       console.log("blogs data", res.data[0]);
       setBlogs(res.data[0]);
       setTags(res.data[0].subcategory.split(","));
     };
     getBlogs();
   }, []);
-  // console.log("bloglist", blogList);
-  // console.log("blog from blog data", blogList);
   return (
     <>
       {blog ? (
         <Helmet>
           <title>{blog.title}</title>
           <meta name={blog.title} content={blog.description.substr(0, 30)} />
-          <meta property="og:site_name" content="Recruitex" />
-          <meta property="og:title" content={blog.title} />
+          <meta name="site_name" content="Recruitex" />
+          <meta name="title" content={blog.title} />
           <meta
-            property="og:description"
+            name="description"
             content={blog.description.substr(0, 30)}
           />
           <meta
-            property="og:image"
+            name="image"
             content="https://recruitex.in/RecruitEx.png"
           />
         </Helmet>
       ) : (
-        <Helmet></Helmet>
+        <Helmet>
+          <title>RecruitEx - Get hired at your dream job with ease</title>
+          <meta name={"Get hired at your dream job with ease"} content={"RecruitEx assists you to get hired without applying to hundreds of jobs rather you are contacted by employers"} />
+          <meta name="site_name" content="Recruitex" />
+          <meta
+            name="title"
+            content="Recruitex: Get hired at your dream job with ease"
+          />
+          <meta
+            name="description"
+            content="Connecting recruiters and candidates to appropriate job roles and simplifying the hiring process"
+          />
+          <meta
+            name="image"
+            content="https://recruitex.in/RecruitExFavicon.png"
+          />
+        </Helmet>
       )}
       {/* <Dark /> */}
       <Header />
@@ -82,7 +89,7 @@ const Blog = () => {
             </header>
             <img src={blog.cover} alt="cover" />
             <p
-              className="blog-desc"
+              className="blog-desc text-dark"
               dangerouslySetInnerHTML={{ __html: blog.description }}
             ></p>
           </div>
